@@ -48,3 +48,12 @@ fadeEls.forEach(function(fadeEl, index){
     opacity: 1
   });
 });
+
+
+
+// swiper
+var swiper = new Swiper(".mySwiper", {
+  direction: "vertical",
+  autoplay: true,
+  loop: true
+});
