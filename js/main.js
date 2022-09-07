@@ -23,7 +23,6 @@ const badgeEl = document.querySelector('header .badges');
 
 // _.throttle(함수, 시간)
 window.addEventListener('scroll', _.throttle(function(){
-  console.log(window.scrollY);
   if(window.scrollY > 500) {
     gsap.to(badgeEl, .5, {
       opacity: 0,
@@ -52,8 +51,43 @@ fadeEls.forEach(function(fadeEl, index){
 
 
 // swiper
-var swiper = new Swiper(".mySwiper", {
+var swiper = new Swiper(".notice-line .mySwiper", {
   direction: "vertical",
   autoplay: true,
   loop: true
+});
+
+
+var swiper = new Swiper(".promtion .mySwiper", {
+  slidesPerView: 3,
+  spaceBetween: 10,
+  centeredSlides: true,
+  loop: true,
+  autoplay: true,
+  pagination: {
+    el:'.promtion .swiper-pagination',
+    clickable: true
+  },
+  navigation : {
+    prevEl: '.promtion .swiper-perv',
+    nextEl: '.promtion .swiper-next'
+  }
+});
+
+
+
+// toggle
+const promtionEl = document.querySelector('.promtion');
+const promationToggleBtn = document.querySelector('.toggle-promtion');
+let isHidePromation = false;
+
+promationToggleBtn.addEventListener('click',function(){
+  isHidePromation = !isHidePromation    // !를 붙히면 '반대로 적용되게해주세요' 라는 의미
+  if(isHidePromation){
+    //숨김처리
+    promtionEl.classList.add('hide');
+  } else{
+    //보임처리
+    promtionEl.classList.remove('hide');
+  }
 });
